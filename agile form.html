@@ -1,0 +1,90 @@
+<html>
+<head><title>Agile form</title></head>
+<body >
+
+<center><form>
+
+<input type="file" accept="image/*" onchange="loadFile(event)">
+<img id="output"/>
+<table >
+<tr><td>First name </td> <td><input type="text" placeholder="Enter the first name" id="fname" required></td></tr>
+<tr><td></td> </tr><tr><td>Last name </td><td> <input type="text" placeholder="Enter the last name" id="lname" ></td></tr>
+<tr> <td> </td></tr><tr><td>Email id </td><td> <input type="email" placeholder="Enter the Email id" id="email" required></td></tr>
+<tr><td></td> </tr><tr><td>Password </td><td> <input type="password" placeholder="Enter the password" id="pwd" ></td></tr>
+<tr><td></td> </tr><tr><td>Gender </td><td> <input type="radio" id="v1" name="gender" value="male">Male</td>
+<td><input type="radio" id="v2" name="gender" value="female">Female</td></tr>
+<tr></tr><tr></tr><tr></tr><td>Permanent Address </td></tr>
+<tr></tr><tr><td>Door number and street name </td><td> <input type="text" placeholder="Enter the door number and street name " id="dsname" onchange="funct()" ></td></tr>
+<tr><td></td> </tr><tr><td>Location</td><td> <input type="text" placeholder="Enter the area name " id="loc" onchange="funct1()" disabled></td></tr>
+<tr><td></td> </tr><tr><td>Pincode</td><td><input type="text" placeholder="Enter the pincode number" id="pin" disabled></td></tr>
+<tr><td></td> </tr><tr><td><input type="checkbox" id="v1" name="padd"  onclick="funct()">Same as permanent address</td></tr>
+<tr></tr><tr></tr><tr></tr><tr><td>
+Communication Address </td></tr>
+<tr><td></td> </tr><tr><td>Door number and street name</td><td><input type="text" placeholder="Enter the door number and street name " id="dsname1" onchange="funct3()" ></td></tr>
+<tr><td></td> </tr><tr><td>Location</td><td> <input type="text" placeholder="Enter the area name " id="loc1" onchange="funct2()" disabled></td></tr>
+<tr><td></td> </tr><tr><td>Pincode</td><td><input type="text" placeholder="Enter the pincode number" id="pin1" disabled ></td></tr>
+<tr><td></td> </tr><tr><td><input type="checkbox" id="v2" name="agree"  onclick="functn()">I agree upon terms and conditions</td></tr>
+<tr><td></td> </tr>
+<tr><td><center><input type="Button" id ="button" value="Click" disabled></center></td></tr></center>
+</table>
+</form>
+<script>
+function funct()
+{
+document.getElementById("loc").disabled=false;
+
+var add = document.getElementsByName("padd");
+
+if(add[0].checked)
+ {
+ 
+ document.getElementById("loc1").disabled=true;
+  document.getElementById("pin1").disabled=true;
+   document.getElementById("dsname1").disabled=true;
+   document.getElementById("loc1").value=document.getElementById("loc").value
+  document.getElementById("pin1").value=document.getElementById("pin").value
+   document.getElementById("dsname1").value=document.getElementById("dsname").value
+  }
+ else
+ {
+   document.getElementById("dsname1").disabled=false;
+   document.getElementById("loc1").value=""
+  document.getElementById("pin1").value=""
+   document.getElementById("dsname1").value=""
+ }
+ }
+ function funct1()
+ {
+ document.getElementById("pin").disabled=false;
+ }
+function funct2()
+{
+document.getElementById("pin1").disabled=false;
+  }
+ function funct3()
+ {
+ document.getElementById("loc1").disabled=false;
+ }
+ function functn()
+ {
+ var veh = document.getElementsByName("agree");
+ if(veh[0].checked)
+  {
+  document.getElementById("button").disabled=false;
+  }
+else
+{
+document.getElementById("button").disabled=true;
+}
+}
+var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  }
+
+</script>
+ 
+</body></html>
+
+
+
